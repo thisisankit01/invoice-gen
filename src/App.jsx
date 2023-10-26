@@ -5,11 +5,12 @@ import InvoiceForm from './components/InvoiceForm'
 import Navbar from './components/Navbar'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import InvoiceStore from './pages/InvoiceStore'
+import { Container } from 'react-bootstrap'
 
 class App extends Component {
 	render() {
 		return (
-			<div className="App d-flex flex-column align-items-center justify-content-center w-100">
+			<Container>
 				<BrowserRouter>
 					<Navbar />
 					<Routes>
@@ -20,7 +21,7 @@ class App extends Component {
 						></Route>
 					</Routes>
 				</BrowserRouter>
-			</div>
+			</Container>
 		)
 	}
 }
