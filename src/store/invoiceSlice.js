@@ -1,9 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const STATUSES = Object.freeze({
-	IDLE: 'idle',
-	ERROR: 'error',
-	LOADING: 'loading'
+	IDLE: 'idle'
 })
 
 const initialState = {
@@ -24,13 +22,17 @@ const invoiceSlice = createSlice({
 		remove: (state, action) => {
 			return {
 				...state,
-				invoices: state.invoices.filter(
-					(invoice) => invoice.id !== action.payload.id
-				)
+				invoices: state.invoices.filter((invoice) => invoice.id !== action.payload.id)
+			}
+		},
+		update: (state, action) => {
+			return {
+				...state,
+				invoices: state.invoices.map((invoice) => (invoice.id === action.payload.id ? action.payload : invoice))
 			}
 		}
 	}
 })
 
-export const { add, remove } = invoiceSlice.actions
+export const { add, remove, update } = invoiceSlice.actions
 export default invoiceSlice.reducer

@@ -8,7 +8,6 @@ import Card from 'react-bootstrap/Card'
 import InvoiceItem from './InvoiceItem'
 import InvoiceModal from './InvoiceModal'
 import InputGroup from 'react-bootstrap/InputGroup'
-import Container from 'react-bootstrap/Container'
 import { add } from '../store/invoiceSlice'
 import { v4 as uuidv4 } from 'uuid'
 import { connect } from 'react-redux'
@@ -115,17 +114,17 @@ class InvoiceForm extends React.Component {
 	onItemizedItemEdit(evt) {
 		var item = {
 			id: evt.target.id,
-			name: evt.target.name,
+			name: evt.target.getAttribute('name'), // Use getAttribute instead of accessing read-only property
 			value: evt.target.value
 		}
 		var items = this.state.items.slice()
-		var newItems = items.map(function (items) {
-			for (var key in items) {
-				if (key == item.name && items.id == item.id) {
-					items[key] = item.value
+		var newItems = items.map(function (itemObj) {
+			for (var key in itemObj) {
+				if (key == item.name && itemObj.id == item.id) {
+					itemObj[key] = item.value
 				}
 			}
-			return items
+			return itemObj
 		})
 		this.setState({ items: newItems })
 		this.handleCalculateTotal()
