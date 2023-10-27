@@ -11,24 +11,22 @@ https://invoice-generator-react.netlify.app/
 <img src="https://i.imgur.com/AZChaei.png" style="max-width: 100px; width: 100%; height: auto;">
 <img src="https://i.imgur.com/Bz3K3DE.png" style="max-width: 100px; width: 100%; height: auto;">
 
+### PS
+
+> The code was previously written in class components and this extended code has been updated with functional components while not changing the previous one .
+
+### link
+> [invoiceGen](https://invoicegen.vercel.app/)
+
 ### Installation
 
 ```
-git clone https://github.com/johnuberbacher/invoice-generator
+git clone https://github.com/thisisankit01/invoice-gen
 
 npm install
 
 npm start / npm run build
 ```
-
-### To-Do
-- [x] Finish parsing data into Preview Modal
-
-- [x] Currency Picker
-
-- [x] Calculate Tax and Discounts
-
-- [ ] Store invoices in Firebase DB
 
 
 ### Meta
